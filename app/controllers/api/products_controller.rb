@@ -1,7 +1,12 @@
 class Api::ProductsController < ApplicationController
-  
+
   def index
-    @products = Product.all.order(:id)
+    @products = Product.all.order(:price)
+    
+    if params[:name_input]
+      @products = @products.where(name: params[:name_input])
+    end
+
     render "index.json.jbuilder"
   end
 
@@ -45,4 +50,5 @@ class Api::ProductsController < ApplicationController
     @product.destroy
     render json: {message: "Product successfully destroy"}
   end
+
 end
