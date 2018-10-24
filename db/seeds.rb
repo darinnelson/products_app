@@ -5,3 +5,9 @@ Product.create(name: "Running shoes", price: 90, image_url: "https://m.media-ama
 
 Supplier.create(name: "Sports Authority", email: "sportauthority@email.com", phone_number: "1-111-111-1111")
 Supplier.create(name: "Dick's Sporting Goods", email: "dickssportinggoods@email.com", phone_number: "1-111-111-1111")
+
+Image.create(image_url: "https://dks.scene7.com/is/image/dkscdn/16GLRUGLRLL72CXXXBKE", product_id: 1)
+Image.create(image_url: "https://www.competitiveedgeproducts.com/assets/images/1602.jpg", product_id: 1)
+Image.create(image_url: "https://i1.adis.ws/i/mizunousa/312438_R52C?w=500&h=500&fmt=jpg&bg=rgb(255,255,255)&img404=404&v=1", product_id: 2)
+Image.create(image_url: "https://cdn3.volusion.com/goz35.avhz4/v/vspfiles/photos/EB-NISC2320-440-2.jpg?1456231556", product_id: 3)
+Image.create(image_url: "https://media.kohlsimg.com/is/image/kohls/2853318_Carbon_Orange?wid=500&hei=500&op_sharpen=1", product_id: 4)

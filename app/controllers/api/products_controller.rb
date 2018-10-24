@@ -1,28 +1,33 @@
 class Api::ProductsController < ApplicationController
 
   def index
-    @products = Product.all.order(:price)
+    @products = Product.all.order(:id)
     
     if params[:name_input]
       @products = @products.where(name: params[:name_input])
     end
 
     render "index.json.jbuilder"
+
   end
 
   def create
     @product = Product.new(
       name: params["name"],
       price: params["price"],
-      image_url: params["image_url"],
-      description: params["description"]
+      description: params["description"],
       )
-
+    
     if @product.save
+      Image.create(
+        image_url: params[:image_url],   #??????????
+        product_id: @product.id    #????????
+      )
       render "show.json.jbuilder"
     else
       render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
     end
+
   end
 
   def show
@@ -35,10 +40,13 @@ class Api::ProductsController < ApplicationController
     @product.id = params[:id] ||  @product.id
     @product.name = params[:name] ||  @product.name
     @product.price = params[:price] ||  @product.price
-    @product.image_url = params[:image_url] ||  @product.image_url
     @product.description = params[:description] ||  @product.description
 
     if @product.save
+      Image.create(
+        image_url: params[:image_url],   #??????????
+        product_id: @product.id    #????????
+      )
       render "show.json.jbuilder"
     else
       render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
