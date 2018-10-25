@@ -16,12 +16,13 @@ class Api::ProductsController < ApplicationController
       name: params["name"],
       price: params["price"],
       description: params["description"],
+      user_id: current_user.id
       )
     
     if @product.save
       Image.create(
-        image_url: params[:image_url],   #??????????
-        product_id: @product.id    #????????
+        image_url: params[:image_url],
+        product_id: @product.id
       )
       render "show.json.jbuilder"
     else
