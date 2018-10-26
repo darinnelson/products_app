@@ -8,4 +8,4 @@ json.total product.total
 json.supplier_id product.supplier_id
 json.supplier_info product.supplier
 json.image_urls product.image
-json.current_user current_user
+json.current_user current_user.id

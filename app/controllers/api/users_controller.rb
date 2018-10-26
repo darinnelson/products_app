@@ -1,4 +1,11 @@
 class Api::UsersController < ApplicationController
+  before_action :authenticate_admin, except: [:index]
+
+  def index
+    @users = User.all
+    render "index.json.jbuilder"
+  end
+
   def create
     user = User.new(
       name: params[:name],
@@ -12,5 +19,11 @@ class Api::UsersController < ApplicationController
     else
       render json: {errors: user.errors.full_messages}, status: :bad_request
     end
+  end
+
+  def destroy
+    @user = User.find_by(id: params[:id])
+    @user.destroy
+    render json: {message: "User successfully destroy"}
   end
 end
