@@ -2,7 +2,7 @@ class Api::OrdersController < ApplicationController
   before_action :authenticate_user #except: :index
 
   def index
-      @orders = current_user.orders
+      @orders = Order.all
       render "index.json.jbuilder"
   end
 
