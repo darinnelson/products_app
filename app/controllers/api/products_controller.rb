@@ -3,6 +3,11 @@ class Api::ProductsController < ApplicationController
 
   def index
     @products = Product.all.order(:id)
+
+    if params[:category]
+      category = Category.find_by(name: params[:category])
+      @products = category.products
+    end
     
     if params[:name_input]
       @products = @products.where(name: params[:name_input])

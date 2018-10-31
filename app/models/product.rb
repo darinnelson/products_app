@@ -17,16 +17,21 @@ class Product < ApplicationRecord
     return price + tax
   end
 
+  # belongs_to :supplier
   def supplier
     Supplier.find_by(id: supplier_id)
   end
 
-  def image
-    Image.where(product_id: id)
-  end
+  has_many :images
+  # def image
+  #   Image.where(product_id: id)
+  # end
 
- has_many :orders
-
-
-
+  has_many :orders
+  has_many :category_products
+  has_many :categories, through: :category_products 
+  # def categories
+  #   category_products.map {|category_product| catergory_product.category}
+  has_many :carted_products
+  # end
 end

@@ -11,3 +11,15 @@ Image.create(image_url: "https://www.competitiveedgeproducts.com/assets/images/1
 Image.create(image_url: "https://i1.adis.ws/i/mizunousa/312438_R52C?w=500&h=500&fmt=jpg&bg=rgb(255,255,255)&img404=404&v=1", product_id: 2)
 Image.create(image_url: "https://cdn3.volusion.com/goz35.avhz4/v/vspfiles/photos/EB-NISC2320-440-2.jpg?1456231556", product_id: 3)
 Image.create(image_url: "https://media.kohlsimg.com/is/image/kohls/2853318_Carbon_Orange?wid=500&hei=500&op_sharpen=1", product_id: 4)
+
+Category.create(name: "Wearable")
+Category.create(name: "Ball")
+Category.create(name: "Gloves")
+Category.create(name: "Baseball stuff")
+
+CategoryProduct.create(category_id: 1, product_id: 1)
+CategoryProduct.create(category_id: 1, product_id: 2)
+CategoryProduct.create(category_id: 3, product_id: 2)
+CategoryProduct.create(category_id: 4, product_id: 2)
+CategoryProduct.create(category_id: 2, product_id: 3)
+CategoryProduct.create(category_id: 1, product_id: 4)
